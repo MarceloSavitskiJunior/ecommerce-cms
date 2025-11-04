@@ -1,13 +1,26 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import type { CategoryDTO } from "../../dtos/category.dto";
+import { DataTableAction } from "@/components/layout/data-table-actions";
 
 export const categoryColumns: ColumnDef<CategoryDTO>[] = [
-    {
-        accessorKey: 'id',
-        header: 'ID'
-    },
-    {
-        accessorKey: 'name',
-        header: 'Nome'
+  {
+    accessorKey: "id",
+    header: "ID",
+  },
+  {
+    accessorKey: "name",
+    header: "Nome da Categoria",
+  },
+  {
+    accessorKey: "actions",
+    enableHiding: true,
+    cell: ({ row }) => {
+      const category = row.original;
+      return (
+        <div className="flex justify-end mr-5">
+          <DataTableAction id={category.id}></DataTableAction>
+        </div>
+      )
     }
+  }
 ];
