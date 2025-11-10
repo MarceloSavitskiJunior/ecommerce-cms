@@ -10,7 +10,7 @@ export function useCategories() {
     });
 }
 
-export function useCategory(id: string) {
+export function useCategoryById(id: string) {
     return useQuery<CategoryDTO>({
         queryKey: ['category', id],
         queryFn: () => CategoryService.getById(id),
