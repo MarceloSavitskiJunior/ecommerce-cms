@@ -1,22 +1,22 @@
-import { SidebarForm } from "@/components/layout/sidebar-form";
+import { SideBarForm } from "@/components/layout/sidebar-form";
 import { useParams } from "react-router-dom";
-import { useBrand } from "../hooks/use-brand";
+import { useBrandById } from "../hooks/use-brand";
 import Lottie from "lottie-react";
 import loadingAnimation from "@/assets/lotties/SandyLoading.json";
 
 export function BrandForm() {
     const {id} = useParams<{id: string}>();
-    const { data, isLoading } = useBrand(id ?? '')
+    const { data, isLoading } = useBrandById(id ?? '')
 
     function saveBrand() {
         console.log("salvando a marca")
     }
 
     return (
-        <SidebarForm 
-            sheetTitle="Cadastro de Marcas" 
-            buttonTitle="Abrir" 
+        <SideBarForm 
+            title="Cadastro de Marcas"
             onSave={saveBrand}
+            isLoading={isLoading}
         >
             <div className="flex p-4">
                 {isLoading ? (
@@ -33,6 +33,6 @@ export function BrandForm() {
                 )}
                 
             </div>
-        </SidebarForm>
+        </SideBarForm>
     )
 }

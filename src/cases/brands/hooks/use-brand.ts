@@ -9,7 +9,7 @@ export function useBrands() {
     });
 }
 
-export function useBrand(id: string) {
+export function useBrandById(id: string) {
     return useQuery<BrandDTO>({
         queryKey: ['brand', id],
         queryFn: () => BrandService.getById(id),

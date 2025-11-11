@@ -13,7 +13,7 @@ export function CategoryLayout() {
     }
 
     function handleCreate() {
-        navigate('/categorias/new')
+        navigate('/categories/new')
     }
 
     return (
